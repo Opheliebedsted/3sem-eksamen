@@ -1,0 +1,57 @@
+body {
+  font-family: "Be Vietnam", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: var(--coffeebean-500);
+}
+
+p {
+  line-height: 23.4px;
+}
+
+h1 {
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+}
+
+h2 {
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+h3 {
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+h4 {
+  font-family: "Gloria Hallelujah", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+h5 {
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+}
