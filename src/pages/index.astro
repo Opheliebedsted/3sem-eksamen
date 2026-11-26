@@ -1,16 +1,348 @@
 ---
+import Layout from '../layouts/Layout.astro';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/kaffeBoenneFavicon.svg" />
+		<link rel="icon" href="/kaffeBoenneFavicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Ricco's</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<header class="header">
+  <a href="#" class="logo">
+    <img src="/src/assets/logo.svg" alt="Riccos Kaffe">
+  </a>
+
+  <button class="menu-toggle" aria-label="Åbn menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="navigation">
+    <a href="#">KAFFEBARER</a>
+    <a href="#">VORES KAFFE</a>
+    <a href="#">KLIMA</a>
+    <a href="#">KONTAKT</a>
+  </nav>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Hos Ricco’s har vi kaffe med karakter</h1>
+    <p>Udforsk vores univers af smag, og nyd en god kop kaffe i rolige omgivelser med plads til både fordybelse og hyggelige stunder.</p>
+    <a href="#" class="btn">
+  <img src="/kaffeBoenneFavicon.svg" alt="" class="btn-icon">
+  SE LOKATIONER
+</a>
+  </div>
+  <div class="hero-image">
+    <img src="/src/assets/heroRiccos.png" alt="Billede af en barista hos Ricco's der brygger kaffe">
+  </div>
+</section>
+<section class="voresKaffe">
+	<div class="voresKaffeTekst">
+		<h1>Vores egen kaffe</h1>
+		<h4 class="h4Grøn">HVILKEN TYPE ER DU?</h4>
+		<p>Prøv at vælge din kaffe ud fra hvilken karakter der passer bedst til dig. Hver kaffe har sin egen personlighed og smagsoplevelse -  find din favorit, og lad din kaffe afspejle lidt af, hvem du er.</p>
+	</div>
+	<!-- De 4 kaffekarakterer ved siden af hinanden -->
+  <div class="kaffe-grid">
+    <div class="kaffe-item">
+      <h4>WHITE MAGIC</h4>
+      <img src="/src/assets/whiteMagic.png" alt="White Magic kaffe karakter">
+    </div>
+    
+    <div class="kaffe-item">
+      <h4>BITCHES BREW</h4>
+      <img src="/src/assets/bitchesBrew.png" alt="Bitches Brew kaffe karakter">
+    </div>
+    
+    <div class="kaffe-item">
+      <h4>ORANGU TANG</h4>
+      <img src="/src/assets/oranguTang.png" alt="Orangu Tang kaffe karakter">
+    </div>
+    
+    <div class="kaffe-item">
+      <h4>BLACK DEATH</h4>
+      <img src="/src/assets/blackDeath.png" alt="Black Death kaffe karakter">
+    </div>
+  </div>
+
+  <!-- Knappen i bunden -->
+  <div>
+        <a href="#" class="btn">
+  <img src="/kaffeBoenneFavicon.svg" alt="" class="btn-icon">
+LÆS OM VORES KAFFE</a>
+  </div>
+
+</section>
+		
+		
+		<footer></footer>
 	</body>
 </html>
+
+<Layout>
+</Layout>
+
+<style>
+/* Grid til de 4 kaffekarakterer */
+/* .kaffe-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  margin-top: 28px;
+} */
+ 
+.kaffe-grid {
+  display: grid;
+  /* Giver hver kolonne en fast max-bredde, og fordeler pladsen imellem dem automatisk */
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between; /* Skubber dem ud til hver sin kant af sektionen */
+  gap: 28px;
+  margin-top: 28px;
+}
+.kaffe-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.kaffe-item img {
+  width: 100%;
+  max-width: 140px; /* Styrer størrelsen på billederne */
+  height: auto;
+  object-fit: contain;
+}
+
+.voresKaffeTekst{
+	max-width: 500px;
+}
+
+.voresKaffeTekst,
+.voresKaffe{
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+	
+}
+.voresKaffe{
+	background-color: var(--seashell-300);
+	margin: 160px 100px; /* 160px mellemrummet mellem hero og første sektion. 100px er i stedet for max-width  */
+	padding: 68px 68px;
+	border-radius: 4px;
+}
+
+.h4Grøn {
+	color: var(--green-500);
+}
+/* Responsivt til mindre skærme */
+@media (max-width: 1100px) {
+  .kaffe-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 kolonner på tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .kaffe-grid {
+    grid-template-columns: 1fr; /* 1 kolonne på mobilen */
+  }
+  .voresKaffe {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+/* Knappen "SE LOKATIONER" */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  padding: 0.85rem 1.75rem;
+  border: 2px solid var(--orange-500);
+  background-color: #D8AD96; 
+  color: var(--orange-500); 
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* Skjul ikonet som standard, hvis det kun skal vises ved hover */
+.btn .btn-icon {
+  width: 16px;
+  height: auto;
+  color: var(--coffeebean-500);
+  display: none;
+}
+
+.btn:hover {
+	background-color: #322b2455; 
+  color:var(--coffeebean-500); /* Mørkbrun tekstfarve */
+  border-color: var(--coffeebean-500); /* Mørkbrun kant hele vejen rundt */
+  transition: all 0.3s ease;
+}
+
+/* Vis kaffebønne-ikonet når der hovres */
+.btn:hover .btn-icon {
+  display: inline-block;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Deler sektionen i to lige store kolonner */
+  min-height: 80vh; /* Giver sektionen en god højde */
+  align-items: center; /* Centrerer indholdet vertikalt */
+  position: relative;
+  overflow: hidden; /* Skjuler evt. dekorationer der stikker ud over kanten */
+}
+
+/* Venstre side: Tekst og knap */
+.hero-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start; 
+  padding: 80px 100px;
+  gap: 28px;
+  max-width: 750px;
+}
+
+/* Højre side: Billedet */
+.hero-image {
+  height: 100%;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+/* Responsivt design til mobil */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr; /* Lægger tekst og billede under hinanden på små skærme */
+  }
+  
+  .hero-content {
+    padding: 20px;
+	padding-bottom: 68px;
+  }
+  
+  .hero-image {
+    padding: 0;
+    order: -1; /* Flytter billedet op over teksten */
+  }
+}
+
+/* HEADER - MOBIL */
+
+.header {
+  width: 100%;
+  padding: 20px;
+background-color: var(--seashell-300);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--coffeebean-500);
+  position: relative;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+/* BURGERMENU */
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 2px;
+  background-color: var(--coffeebean-500);
+  display: block;
+}
+
+/* NAVIGATION - MOBIL */
+
+.navigation {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--seashell-300);
+  padding: 20px 6%;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 10;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: var(--coffeebean-500);
+  font-size: 18px;
+  font-weight: 600;
+}
+.navigation a:hover {
+  color: var(--orange-500);
+}
+
+/* MENU ÅBEN */
+
+.navigation.active {
+  display: flex;
+}
+
+/* DESKTOP MENU */
+
+@media (min-width: 900px) {
+  .header {
+    min-height: 150px;
+    padding: 15px 100px;
+  }
+
+  .logo img {
+    width: 250px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .navigation {
+    display: flex;
+    position: static;
+    width: auto;
+    padding: 0;
+
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .navigation a {
+    font-size: 16px;
+	font-weight: 600;
+  }
+}
+
+body {
+  background-color: var(--seashell-500);
+}
+</style>
